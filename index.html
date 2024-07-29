@@ -1,36 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Sofie2229</title>
-
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet"> 
-
-	<link rel="stylesheet" href="styles/global.css">
+	<meta charset="UTF-8" />
+	<link rel="icon" href="./icon.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Minfsweeper</title>
+  <script type="module" crossorigin>var z=Object.defineProperty;var G=(e,t,o)=>t in e?z(e,t,{enumerable:!0,configurable:!0,writable:!0,value:o}):e[t]=o;var C=(e,t,o)=>G(e,typeof t!="symbol"?t+"":t,o);(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))l(s);new MutationObserver(s=>{for(const r of s)if(r.type==="childList")for(const c of r.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&l(c)}).observe(document,{childList:!0,subtree:!0});function o(s){const r={};return s.integrity&&(r.integrity=s.integrity),s.referrerPolicy&&(r.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?r.credentials="include":s.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function l(s){if(s.ep)return;s.ep=!0;const r=o(s);fetch(s.href,r)}})();const Q="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAEACAYAAAC6UvZOAAAACXBIWXMAAC4jAAAuIwF4pT92AAADE0lEQVR42u1ar2/cMBS+WCED09gGBnYbXvlgwqdp4EjZ8UqTpqOD45Uq9W8oOTAwWiVwUuENb1cwsNKCsmZnqzm5L372ixO/ZDlbsi7ny/ve8/d+2M4lWS6X1cyzbbfbmegiLHuqD7QFkM3bgrpFgAgwDoBUTwwvC7oIKwvm8/lM9onWg29CqO70gknQOw7aCBsBPt7fd49ECUIFstorQZ5dXg6UTEVRqF5fk92I3VyP53keIJ31BjXEesBQD1JbIFG8IyjCtgCzciC1uuIixQR7W5mwHCABuITDJFNbLpxTsBWTcUxh+Hogugjvp/A7eRFwk/XrB/fKVGuUn9i11pJdQa0aHNjMfvOOZkGSJKq7OOkxlAFyVVVuz+ymkzbm5nAb5CGAGwHLfl7AQOQ4KQ6ogDwnFgcnyo2vq7/dAsl3g9EvB8X1nep6+3B1pXpjvdDu3Ydy/urJ/ofTm5/4YvMgKO9vTKEe/Pz8LUnYyAEGYhJGSYQgmLDVCxDEJBz4vPBg9vezL4++OwFWq1VD2Aai0lkPZSist/efvjb4eARgY9sZSBRh/ff6/sYUvJ9gjLceBN/mCUwjPLlip1ijF2xmO0+utTC2P4DgnTmQLqyyLKt8mpRrJpPDbZCH/t3o2qGTvICByHFSHFABe+HgEOpBcIC0TTUyuVO0KWWmMUFJHFsgpV1OrWQSbc8Rwj7BYMkF0hRsZe4/mMIB1AM0F8qyNI7vljPmiiQ1Qq18Jc3GReSAwwLbvEe4Nk60HmClPPz/TJgmrz8oesmF4Ktz6qt5PLkwgeU91gNLJG7Wa+P40WLBnI1QI389gFz0zoGgcGDjgZ+DWA8ObH9we2xetZ9eMEci1DjA/gBwwccB1IR5hT8O+Cxw+T/WAw4OivNSdez7hHaq7npwPtTZOT/JSJbE80KsB2EjEXtrGL7DG84CqAmziJ8DPgsiB7N+3hqP9aCjF16uN8bxP4sjJgugJswifg74dyiQC34LIBfDxUGsB0PEwSYDz9DKBbMXpEZM68T2yhEgnhdG/vwgAkSACNCu/QOgJ/e0ZC4RhQAAAABJRU5ErkJggg==";class U{constructor(){C(this,"bomb",-1);C(this,"flag",!1);C(this,"reveal",-1)}}const g=32;let p=0;const B=new Map,X=(e,t)=>{const o=`${e},${t}`;if(!B.has(o)){const l=new Array;for(let s=0;s<g*g;s++)l.push(new U);B.set(o,l)}return B.get(o)},u=(e,t)=>{const o=Math.floor(e/g),l=Math.floor(t/g),s=X(o,l);let r=e%g,c=t%g;r<0&&(r+=g),c<0&&(c+=g);const h=r+c*g;return s[h]},J=(e,t)=>[u(e-1,t-1),u(e+0,t-1),u(e+1,t-1),u(e-1,t+0),u(e+1,t+0),u(e-1,t+1),u(e+0,t+1),u(e+1,t+1)];let F=0;const j=()=>{const s=.05+F/1e3*.1;return s>.2137?.2137:s},k=()=>{p=-1;let e=0;B.forEach(o=>{o.forEach(l=>{l.bomb==1&&l.flag&&(e+=100),l.bomb==0&&l.flag&&(e-=100)})}),e+=F/100;const t=document.querySelector("#temp");t.innerText=`Gameover! score = ${Math.floor(e)}`},W=(e,t)=>{if(p==-1)return;const o=new Array;o.push([e,t]);const l=(g*2+1)*(g*2+1);for(let s=0;s<o.length&&s<l;s++){const[r,c]=o[s],h=u(r,c);if(h.flag||h.reveal!=-1&&s!=0)continue;const b=J(r,c);if(p==0&&(h.bomb=0,b.forEach(m=>{m.bomb=0}),p=1),p==1){const m=j();h.bomb==-1&&(h.bomb=Math.random()<m?1:0),b.forEach(M=>{M.bomb==-1&&(M.bomb=Math.random()<m?1:0)})}const A=b.filter(m=>m.bomb==1).length,O=b.filter(m=>m.flag==!0).length;if(h.reveal==-1&&(h.reveal=A,F++),h.bomb==1){k();return}A<=O&&(o.push([r-1,c-1]),o.push([r+0,c-1]),o.push([r+1,c-1]),o.push([r-1,c+0]),o.push([r+1,c+0]),o.push([r-1,c+1]),o.push([r+0,c+1]),o.push([r+1,c+1]))}},N=(e,t)=>{if(p==-1)return;const o=u(e,t);if(o.reveal==-1)o.flag=!o.flag;else{const l=J(e,t);l.filter(r=>r.reveal==-1).length==o.reveal&&l.forEach(r=>{r.reveal==-1&&(r.flag=!0)})}},I=new Image;I.src=Q;const f=document.querySelector("canvas#game"),q=f.getContext("2d");f.width=f.clientWidth;f.height=f.clientHeight;let d=[0,0],a=3;const v=()=>{const e=16*a;f.width=f.clientWidth,f.height=f.clientHeight,q.imageSmoothingEnabled=!1;const t=[Math.floor(f.width*.5),Math.floor(f.height*.5)],o=Math.floor(f.height/e),l=Math.floor(f.width/e);for(let s=Math.floor(-l*.5)-2;s<=Math.floor(l*.5);s++)for(let r=Math.floor(-o*.5)-2;r<=Math.floor(o*.5);r++){const[c,h]=d;let b=c%e,A=h%e;b<0&&(b+=e),A<0&&(A+=e);const O=s*e+t[0]+b,m=r*e+t[1]+A,M=s-Math.floor(c/e),Y=r-Math.floor(h/e),n=u(M,Y);let i=0;p!=-1?n.flag&&n.reveal==-1?i=1:n.reveal==0?i=15:n.reveal==1?i=14:n.reveal==2?i=13:n.reveal==3?i=12:n.reveal==4?i=11:n.reveal==5?i=10:n.reveal==6?i=9:n.reveal==7?i=8:n.reveal==8&&(i=7):n.bomb==1&&n.reveal!=-1?i=3:n.bomb==1&&n.flag?i=1:n.bomb==0&&n.flag?i=4:n.bomb==1&&n.reveal==-1?i=5:n.reveal==0?i=15:n.reveal==1?i=14:n.reveal==2?i=13:n.reveal==3?i=12:n.reveal==4?i=11:n.reveal==5?i=10:n.reveal==6?i=9:n.reveal==7?i=8:n.reveal==8&&(i=7),q.drawImage(I,0,16*i,16,16,O,m,e,e)}},L=(e,t,o=!1)=>{const l=[Math.floor(f.width*.5),Math.floor(f.height*.5)],s=16*a,r=Math.floor((e-l[0]-d[0])/s),c=Math.floor((t-l[1]-d[1])/s);o?N(r,c):W(r,c),v()};let D=[0,0],T=[0,0],y=[0,0],w=!1,E=!1;const P=(e,t)=>{D=d,T=[e,t],y=[e,t],E=!0},x=(e,t)=>{const o=16*a*.25;y=[e,t];const l=y[0]-T[0],s=y[1]-T[1];Math.abs(l)>o&&(w=!0),Math.abs(s)>o&&(w=!0),w&&(d=[D[0]+l,D[1]+s]),v()},S=()=>{w=!1,E=!1},H=(e,t)=>{if(a>=8)return;const o=[Math.floor(f.width*.5),Math.floor(f.height*.5)],l=a;a+=1;const[s,r]=d;d=[Math.floor((s-(e-o[0])/a)*(a/l)),Math.floor((r-(t-o[1])/a)*(a/l))],v()},Z=(e,t)=>{if(a<=1)return;const o=[Math.floor(f.width*.5),Math.floor(f.height*.5)],l=a;a-=1;const[s,r]=d;d=[Math.floor((s+(e-o[0])/a)*(a/l)),Math.floor((r+(t-o[1])/a)*(a/l))],v()};f.onmousedown=e=>{e.preventDefault(),P(e.offsetX,e.offsetY)};f.onmousemove=e=>{e.preventDefault(),E&&x(e.offsetX,e.offsetY)};f.onmouseup=e=>{e.preventDefault(),e.button==0&&!w&&L(e.offsetX,e.offsetY),S()};f.oncontextmenu=e=>{e.preventDefault(),L(e.offsetX,e.offsetY,!0)};f.onwheel=e=>{e.preventDefault(),e.deltaY>0&&Z(e.offsetX,e.offsetY),e.deltaY<0&&H(e.offsetX,e.offsetY)};I.onload=()=>v();window.onresize=()=>v();f.ontouchstart=e=>{P(e.touches[0].clientX,e.touches[0].clientY)};f.ontouchmove=e=>{e.preventDefault(),E&&x(e.touches[0].clientX,e.touches[0].clientY)};f.ontouchend=()=>{S()};
+</script>
+  <style rel="stylesheet" crossorigin>html,body{width:100%;height:100%}body{background-color:#000;margin:0}main{width:100%;height:100%}canvas#game{width:100%;height:100%;display:block}
+</style>
 </head>
+
 <body>
-	<header>
-		<h2>Sofie2229</h2>
-	</header>
+	<span id="temp" style="position: fixed; top: 0; left: 0; color: white; user-select: none; font-size: 20px;">
+		This text will be useful for later. You'll see.
+	</span>
 	<main>
-		<section>
-			<h1>Kim jestem?</h1>
-			<p>
-				Jestem uczennicą na profilu Technik Informatyk, która ma wiele pasji do informatyki.
-				Od młodości się nią fascynowałam, czy to od gier komputerowych aż do tego jak działa nawet najmniejsza rzecz w komputerze.
-				Posiadam też kota akutalnie, który jest tak puszysty że wypływa z rąk.
-				Lubię nosić ją na swoich rękach, wtedy czuję się jakbym była matką.
-				Uwielbiam podróże rowerem, takie które są 30km+, ale zazwyczaj mi brak chęci. Może się to zmieni...
-				Potrafię programować w C++, Javascript/Typescript, i może jeszcze pare innych, nie jestem w stanie wymienić każdego ;&rpar;
-				Nie chcę być jakoś specjalnie publiczną osobą, ale poprostu ciekawi mnie jak to jest...
-			</p>
-		</section>
+		<canvas id="game"></canvas>
 	</main>
-	<footer>
-		<p class="fancy">Dzięki za wizytę</p>
-	</footer>
 </body>
+
 </html>
